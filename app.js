@@ -1,7 +1,8 @@
 const mongoose = require('mongodb');
+const express = require('express');
+
 require('./models/db');
 
-const express = require('express');
 var app = express();
 
 const port = process.env.PORT;
