@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <title>To Do</title>
+</head>
+
+<body style="background: rgb(45, 143, 199)">
+     <div class="container d-flex justify-content-center align-items-center" style="height: 100vh; width: 100vw">
+         <div class="container" style="background: rgb(224, 128, 59); border-radius: 20px; height: 80vh; overflow: auto;">
+             <h1 class="text-center" style='margin: 2%;'>Tu dodo</h1>
+
+             <!-- Formularz  -->
+
+            <form>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputWhat">Co do czego?</label>
+                        <input type="text" class="form-control" id="what">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="when">Kiedy?</label>
+                        <select id="when" class="form-control">
+                            <option>Poniedziałek</option>
+                            <option>Wtorek</option>
+                            <option>Środa</option>
+                            <option>Czwartek</option>
+                            <option>Piątek</option>
+                            <option>Sobota</option>
+                            <option>Niedziela</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2 d-flex align-items-end"> <button type="button" class="btn btn-light" id="submit">Tudu!</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- Dni tygodnia -->
+
+             <div class="row">
+                 <div class="col weekDay" >
+                     <h2>Pon.</h2>
+                     <hr>
+                     <div id="pon">
+
+                     </div>
+                 </div>
+                <div class="col weekDay">
+                    <h2>Wt.</h2>
+                    <hr>
+                    <div id="wt">
+                    
+                    </div>
+                </div>
+                <div class="col weekDay">
+                    <h2>Śr.</h2>
+                    <hr>
+                    <div id="śr">
+                    
+                    </div>
+                </div>
+                <div class="col weekDay">
+                    <h2>Czw.</h2>
+                    <hr>
+                    <div id="czw">
+                    
+                    </div>
+                </div>
+                <div class="col weekDay">
+                    <h2>Pt.</h2>
+                    <hr>
+                    <div id="pt">
+                    
+                    </div>
+                </div>
+                <div class="col weekDay">
+                    <h2>Sob.</h2>
+                    <hr>
+                    <div id="sob">
+                    
+                    </div>
+                </div>
+                <div class="col weekDay">
+                    <h2>Niedź.</h2>
+                    <hr>
+                    <div id="niedź">
+                    
+                    </div>
+                </div>
+             </div>
+         </div>
+     </div>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        function addNote() {
+            const submit = document.getElementById('submit');
+            const valueOfWhat = document.getElementById('what')
+            const valueOfWhen = document.getElementById('when')
+
+            const pon = document.getElementById('pon')
+            const wt = document.getElementById('wt')
+            const śr = document.getElementById('śr')
+            const czw = document.getElementById('czw')
+            const pt = document.getElementById('pt')
+            const sob = document.getElementById('sob')
+            const niedz = document.getElementById('niedź')
+            
+            const note = document.createElement("div");
+
+            note.innerText = valueOfWhat.value;
+
+            submit.addEventListener("click", () => {
+
+                if (valueOfWhen.value === 'Poniedziałek')  {
+                    pon.appendChild(note)
+                }
+                if (valueOfWhen.value === 'Wtorek') {
+                    wt.appendChild(note)
+                }
+                if (valueOfWhen.value === 'Środa') {
+                    śr.appendChild(note)
+                }
+                if (valueOfWhen.value === 'Czwartek') {
+                    czw.appendChild(note)
+                }
+                if (valueOfWhen.value === 'Piątek') {
+                    pt.appendChild(note)
+                }
+                if (valueOfWhen.value === 'Sobota') {
+                    sob.appendChild(note)
+                }
+                if (valueOfWhen.value === 'Niedziela') {
+                    niedz.appendChild(note)
+                }
+                
+            })
+        }
+        
+        addNote();
+    </script>
+</body>
+</html>
