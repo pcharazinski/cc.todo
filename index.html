@@ -10,10 +10,10 @@
     <title>To Do</title>
 </head>
 
-<body style="background: rgb(45, 143, 199)">
+<body style="background-image: url(socks.jpg); background-repeat: no-repeat; background-size: cover; color:white">
      <div class="container d-flex justify-content-center align-items-center" style="height: 100vh; width: 100vw">
-         <div class="container" style="background: rgb(224, 128, 59); border-radius: 20px; height: 80vh; overflow: auto;">
-             <h1 class="text-center" style='margin: 2%;'>Tu dodo</h1>
+         <div class="container" style="background: rgba(54, 54, 54, 0.445); border-radius: 20px; height: 80vh; overflow: auto;">
+             <h1 class="text-center" style=' margin: 2%;'>Tu dodo</h1>
 
              <!-- Formularz  -->
 
@@ -31,8 +31,7 @@
                             <option>Środa</option>
                             <option>Czwartek</option>
                             <option>Piątek</option>
-                            <option>Sobota</option>
-                            <option>Niedziela</option>
+                            <option>Weekend</option>
                         </select>
                     </div>
                     <div class="form-group col-md-2 d-flex align-items-end"> <button type="button" class="btn btn-light" id="submit">Tudu!</button>
@@ -43,54 +42,48 @@
             <!-- Dni tygodnia -->
 
              <div class="row">
-                 <div class="col weekDay" >
+                 <div class="col weekDay" id='1'>
                      <h2>Pon.</h2>
                      <hr>
                      <div id="pon">
 
                      </div>
                  </div>
-                <div class="col weekDay">
+                <div class="col weekDay" id='2'>
                     <h2>Wt.</h2>
                     <hr>
                     <div id="wt">
                     
                     </div>
                 </div>
-                <div class="col weekDay">
+                <div class="col weekDay" id='3'>
                     <h2>Śr.</h2>
                     <hr>
                     <div id="śr">
                     
                     </div>
                 </div>
-                <div class="col weekDay">
+                <div class="col weekDay" id='4'>
                     <h2>Czw.</h2>
                     <hr>
                     <div id="czw">
                     
                     </div>
                 </div>
-                <div class="col weekDay">
+                <div class="col weekDay" id='5'>
                     <h2>Pt.</h2>
                     <hr>
                     <div id="pt">
                     
                     </div>
                 </div>
-                <div class="col weekDay">
-                    <h2>Sob.</h2>
+                <div class="col weekDay" id='6'>
+                    <h2>Weekend</h2>
                     <hr>
-                    <div id="sob">
+                    <div id="weekend">
                     
                     </div>
                 </div>
-                <div class="col weekDay">
-                    <h2>Niedź.</h2>
-                    <hr>
-                    <div id="niedź">
-                    
-                    </div>
                 </div>
              </div>
          </div>
@@ -111,51 +104,188 @@
 
     <script>
 
+        // Jaki dziś dzień tygodnia
+
+            var today = new Date();
+            var weekday = today.getUTCDay();
+
+            var weekDayNumber = {
+                '1': "1",
+                '2': '2',
+                '3': '3',
+                '4': '4',
+                '5': '5',
+                '6': '6',
+                '7': '6'
+            };
+
+            let coloredDay = document.getElementById(weekDayNumber[weekday])
+            coloredDay.classList.add('veryToday');
+        
+        // Wybór Dnia
+
+        function clicedWeekday() {
+            const pon = document.getElementById(weekDayNumber['1'])
+            const wt = document.getElementById(weekDayNumber['2'])
+            const śr = document.getElementById(weekDayNumber['3'])
+            const czw = document.getElementById(weekDayNumber['4'])
+            const pt = document.getElementById(weekDayNumber['5'])
+            const weekend = document.getElementById(weekDayNumber['6'])
+
+            document.getElementById(weekDayNumber['1']).addEventListener('click', (e) => {
+                pon.classList.add('today');
+                wt.classList.remove('today')
+                śr.classList.remove('today')
+                czw.classList.remove('today')
+                pt.classList.remove('today')
+                weekend.classList.remove('today')               
+            })
+
+            document.getElementById(weekDayNumber['2']).addEventListener('click', (e) => {
+                pon.classList.remove('today');
+                wt.classList.add('today')
+                śr.classList.remove('today')
+                czw.classList.remove('today')
+                pt.classList.remove('today')
+                weekend.classList.remove('today')
+            })
+
+            document.getElementById(weekDayNumber['3']).addEventListener('click', (e) => {
+                pon.classList.remove('today');
+                wt.classList.remove('today')
+                śr.classList.add('today')
+                czw.classList.remove('today')
+                pt.classList.remove('today')
+                weekend.classList.remove('today')
+            })
+
+            document.getElementById(weekDayNumber['4']).addEventListener('click', (e) => {
+                pon.classList.remove('today');
+                wt.classList.remove('today')
+                śr.classList.remove('today')
+                czw.classList.add('today')
+                pt.classList.remove('today')
+                weekend.classList.remove('today')
+            })
+
+            document.getElementById(weekDayNumber['5']).addEventListener('click', (e) => {
+                pon.classList.remove('today');
+                wt.classList.remove('today')
+                śr.classList.remove('today')
+                czw.classList.remove('today')
+                pt.classList.add('today')
+                weekend.classList.remove('today')
+            })
+
+            document.getElementById(weekDayNumber['6']).addEventListener('click', (e) => {
+                pon.classList.remove('today');
+                wt.classList.remove('today')
+                śr.classList.remove('today')
+                czw.classList.remove('today')
+                pt.classList.remove('today')
+                weekend.classList.add('today')
+            })
+
+
+        }
+
+        clicedWeekday()
+
+        // Dodawanie notatki
+        
+        const submit = document.getElementById('submit');
+        const valueOfWhat = document.getElementById('what')
+        const valueOfWhen = document.getElementById('when')
+
+        var weekDays = {
+                'Poniedziałek': "pon",
+                'Wtorek' : 'wt',
+                'Środa' : 'śr',
+                'Czwartek' : 'czw',
+                'Piątek' : 'pt',
+                'Weekend' : 'weekend'                
+            };
+
         function addNote() {
-            const submit = document.getElementById('submit');
-            const valueOfWhat = document.getElementById('what')
-            const valueOfWhen = document.getElementById('when')
 
-            const pon = document.getElementById('pon')
-            const wt = document.getElementById('wt')
-            const śr = document.getElementById('śr')
-            const czw = document.getElementById('czw')
-            const pt = document.getElementById('pt')
-            const sob = document.getElementById('sob')
-            const niedz = document.getElementById('niedź')
-            
-            const note = document.createElement("div");
+            submit.addEventListener("click", (e) => {
+                e.preventDefault();
 
-            note.innerText = valueOfWhat.value;
+                const note = document.createElement("div");
+                if (valueOfWhat.value) {
 
-            submit.addEventListener("click", () => {
+                    note.innerHTML = `<div class='note'><span>${valueOfWhat.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`;
 
-                if (valueOfWhen.value === 'Poniedziałek')  {
-                    pon.appendChild(note)
-                }
-                if (valueOfWhen.value === 'Wtorek') {
-                    wt.appendChild(note)
-                }
-                if (valueOfWhen.value === 'Środa') {
-                    śr.appendChild(note)
-                }
-                if (valueOfWhen.value === 'Czwartek') {
-                    czw.appendChild(note)
-                }
-                if (valueOfWhen.value === 'Piątek') {
-                    pt.appendChild(note)
-                }
-                if (valueOfWhen.value === 'Sobota') {
-                    sob.appendChild(note)
-                }
-                if (valueOfWhen.value === 'Niedziela') {
-                    niedz.appendChild(note)
+                    let choosenDay = document.getElementById(weekDays[valueOfWhen.value])
+                    choosenDay.appendChild(note)
+
+                    valueOfWhat.value = ''
                 }
                 
             })
         }
         
         addNote();
+        
+        // Usuwanie notatki i modyfikacja
+        document.getElementById(weekDayNumber['1']).addEventListener('click', (e) => {
+            if (e.target.classList.contains('del')) { e.target.parentElement.remove()}
+            if (e.target.classList.contains('mod')) {e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>"}
+            if (e.target.classList.contains('accept')) {
+                let changeForm = document.querySelector(".changeForm")
+                e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`}
+        }
+        )
+
+        document.getElementById(weekDayNumber['2']).addEventListener('click', (e) => {
+                if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('accept')) {
+                    let changeForm = document.querySelector(".changeForm")
+                    e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
+                }
+            }
+            )
+
+        document.getElementById(weekDayNumber['3']).addEventListener('click', (e) => {
+                if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('accept')) {
+                    let changeForm = document.querySelector(".changeForm")
+                    e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
+                }
+            }
+            )
+
+        document.getElementById(weekDayNumber['4']).addEventListener('click', (e) => {
+                if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('accept')) {
+                    let changeForm = document.querySelector(".changeForm")
+                    e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
+                }
+            }
+            )
+        
+        document.getElementById(weekDayNumber['5']).addEventListener('click', (e) => {
+                if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('accept')) {
+                    let changeForm = document.querySelector(".changeForm")
+                    e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
+                }
+            }
+            )
+
+        document.getElementById(weekDayNumber['6']).addEventListener('click', (e) => {
+                if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('accept')) {
+                    let changeForm = document.querySelector(".changeForm")
+                    e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
+                }
+            }
+            )
     </script>
 </body>
 </html>
