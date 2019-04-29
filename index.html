@@ -7,20 +7,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="main.css">
-    <title>To Do</title>
+    <title>TuDu!</title>
+    <link href="https://fonts.googleapis.com/css?family=Schoolbell" rel="stylesheet">
 </head>
 
-<body style="background-image: url(socks.jpg); background-repeat: no-repeat; background-size: cover; color:white">
+<body style="background-image: url(socks.jpg); background-repeat: no-repeat; background-size: cover; color:white; font-family: 'Schoolbell', cursive">
      <div class="container d-flex justify-content-center align-items-center" style="height: 100vh; width: 100vw">
          <div class="container" style="background: rgba(54, 54, 54, 0.445); border-radius: 20px; height: 80vh; overflow: auto;">
-             <h1 class="text-center" style=' margin: 2%;'>Tu dodo</h1>
+             <h1 class="text-center" style=' margin: 2%;'>What you, got TuDu?!</h1>
 
              <!-- Formularz  -->
 
             <form>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="inputWhat">Co do czego?</label>
+                        <label for="inputWhat">Co do...?</label>
                         <input type="text" class="form-control" id="what">
                     </div>
                     <div class="form-group col-md-4">
@@ -34,7 +35,7 @@
                             <option>Weekend</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-2 d-flex align-items-end"> <button type="button" class="btn btn-light" id="submit">Tudu!</button>
+                    <div class="form-group col-md-2 d-flex align-items-end"> <button type="button" class="btn btn-light" id="submit">TuDu!</button>
                     </div>
                 </div>
             </form>
@@ -86,6 +87,9 @@
                 </div>
                 </div>
              </div>
+            <span style="position: absolute; left: 10px; bottom:5px;">
+                <p>Photo by Andrew Neel on Unsplash</p>
+            </span>
          </div>
      </div>
 
@@ -230,7 +234,7 @@
         // Usuwanie notatki i modyfikacja
         document.getElementById(weekDayNumber['1']).addEventListener('click', (e) => {
             if (e.target.classList.contains('del')) { e.target.parentElement.remove()}
-            if (e.target.classList.contains('mod')) {e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>"}
+            if (e.target.classList.contains('mod')) {e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę!' id='minus-shd'><button type=\"button\" class=\"btn-sm btn btn-light accept\">Potwierdź!</button>"}
             if (e.target.classList.contains('accept')) {
                 let changeForm = document.querySelector(".changeForm")
                 e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`}
@@ -239,7 +243,7 @@
 
         document.getElementById(weekDayNumber['2']).addEventListener('click', (e) => {
                 if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
-                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę!' id='minus-shd'><button type=\"button\" class=\"btn-sm btn btn-light accept\">Potwierdź!</button>" }
                 if (e.target.classList.contains('accept')) {
                     let changeForm = document.querySelector(".changeForm")
                     e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
@@ -249,7 +253,7 @@
 
         document.getElementById(weekDayNumber['3']).addEventListener('click', (e) => {
                 if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
-                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę!' id='minus-shd'><button type=\"button\" class=\"btn-sm btn btn-light accept\">Potwierdź!</button>" }
                 if (e.target.classList.contains('accept')) {
                     let changeForm = document.querySelector(".changeForm")
                     e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
@@ -259,7 +263,7 @@
 
         document.getElementById(weekDayNumber['4']).addEventListener('click', (e) => {
                 if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
-                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę!' id='minus-shd'><button type=\"button\" class=\"btn-sm btn btn-light accept\">Potwierdź!</button>" }
                 if (e.target.classList.contains('accept')) {
                     let changeForm = document.querySelector(".changeForm")
                     e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
@@ -269,7 +273,7 @@
         
         document.getElementById(weekDayNumber['5']).addEventListener('click', (e) => {
                 if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
-                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę!' id='minus-shd'><button type=\"button\" class=\"btn-sm btn btn-light accept\">Potwierdź!</button>" }
                 if (e.target.classList.contains('accept')) {
                     let changeForm = document.querySelector(".changeForm")
                     e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`
@@ -279,7 +283,7 @@
 
         document.getElementById(weekDayNumber['6']).addEventListener('click', (e) => {
                 if (e.target.classList.contains('del')) { e.target.parentElement.remove() }
-                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę'><button type=\"button\" class=\"btn-sm btn btn-success accept\">Potwierdź!</button>" }
+                if (e.target.classList.contains('mod')) { e.target.parentElement.innerHTML = "<input type='text' class='form-control changeForm' placeholder='Wprowadź zmianę!' id='minus-shd'><button type=\"button\" class=\"btn-sm btn btn-light accept\">Potwierdź!</button>" }
                 if (e.target.classList.contains('accept')) {
                     let changeForm = document.querySelector(".changeForm")
                     e.target.parentElement.parentElement.innerHTML = `<div class='note'><span>${changeForm.value}</span><br><button type="button" class="btn-sm btn btn-light mod">Zmień!</button><button type="button" class="btn-sm btn btn-danger del">Usuń!</button></div>`

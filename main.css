@@ -13,7 +13,7 @@ h2 {
 
 .today {
     min-width: 250px;
-    background: rgba(207, 180, 56, 0.589); 
+    background: rgba(228, 197, 60, 0.418); 
    
 
     overflow: hidden;
@@ -40,6 +40,18 @@ h2 {
 }
 
 .del {
-    background: rgba(204, 46, 46, 0.87);
+    border: 0.5px solid rgba(207, 179, 56, 0.788);
+    background: rgba(207, 179, 56, 0.788);
 }
 
+#what {
+    box-shadow: none;
+}
+
+#when {
+    box-shadow: none;
+}
+
+#minus-shd {
+    box-shadow: none;
+}
